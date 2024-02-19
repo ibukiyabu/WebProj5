@@ -30,5 +30,11 @@
 			<result name="success">inquiry.jsp</result>
 		</action>
 
+		<action name="InquiryCompleteAction"
+			class="com.diworksdev.webproj5.action.InquiryCompleteAction"
+			method="execute">
+			<result name="success">inquiryComplete.jsp</result>
+		</action>
+
 	</package>
 </struts>
