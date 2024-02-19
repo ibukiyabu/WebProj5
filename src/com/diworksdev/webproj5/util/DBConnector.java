@@ -23,7 +23,7 @@ public class DBConnector {
 	 */
 	private static String passsword = "root";
 	
-	public Connection getcConnection() {
+	public Connection getConnection() {
 		Connection con = null;
 		
 		try {

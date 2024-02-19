@@ -20,7 +20,7 @@ public class LoginDAO {
 	public List<LoginDTO> select(String username, String password){
 		
 		DBConnector db = new DBConnector();
-		Connection con = db.getcConnection();
+		Connection con = db.getConnection();
 		
 		String sql = "select * from users where user_name=? and password=?";
 		
