@@ -11,13 +11,11 @@ import com.diworksdev.webproj5.dto.LoginDTO;
 import com.diworksdev.webproj5.util.DBConnector;
 
 public class LoginDAO {
-	
 	public String username;
 	public String password;
-	
 	public List<LoginDTO> loginDTOList = new ArrayList<LoginDTO>();
-	
-	public List<LoginDTO> select(String username, String password){
+
+	public List<LoginDTO> select(String username, String password) {
 		
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
@@ -30,28 +28,26 @@ public class LoginDAO {
 			ps.setString(2, password);
 			ResultSet rs = ps.executeQuery();
 			
-			while(rs.next()) {
+			while (rs.next()) {
 				LoginDTO dto = new LoginDTO();
 				dto.setUsername(rs.getString("user_name"));
 				dto.setPassword(rs.getString("password"));
 				loginDTOList.add(dto);
 			}
-			
-			if(loginDTOList.size() <= 0) {
-				LoginDTO dto=new LoginDTO(); dto.setUsername("該当なし");
+			if (loginDTOList.size() <= 0) {
+				LoginDTO dto = new LoginDTO();
+				dto.setUsername("該当なし");
 				dto.setPassword("該当なし");
 				loginDTOList.add(dto);
 			}
-		}catch(SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		try {
 			con.close();
-		} catch(SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return loginDTOList;
-		
 	}
-
 }

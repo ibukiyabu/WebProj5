@@ -6,32 +6,30 @@ import java.sql.SQLException;
 
 public class DBConnector {
 	/**
-	 * JDBCドライバー名
-	 */
+	* JDBC ドライバー名
+	*/
 	private static String driverName = "com.mysql.jdbc.Driver";
-	
 	/**
-	 * データベース接続URL
-	 */
+	* データベース接続 URL
+	*/
 	private static String url = "jdbc:mysql://localhost/testdb";
 	/**
-	 * データ接続ユーザー名
-	 */
+	* データベース接続ユーザ名
+	*/
 	private static String user = "root";
 	/**
-	 * データ接続パスワード
-	 */
-	private static String passsword = "root";
-	
+	* データベース接続パスワード
+	*/
+	private static String password = "root";
+
 	public Connection getConnection() {
 		Connection con = null;
-		
 		try {
 			Class.forName(driverName);
-			con = DriverManager.getConnection(url, user, passsword);
+			con = DriverManager.getConnection(url, user, password);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-		} catch(SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return con;
